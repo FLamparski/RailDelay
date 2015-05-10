@@ -1,0 +1,74 @@
+INFO:stomp.py:Attempting connection to host datafeeds.networkrail.co.uk, port 61618
+INFO:stomp.py:keepalive: autodetected linux-style support
+INFO:stomp.py:keepalive: activating linux-style support
+INFO:stomp.py:keepalive: using system defaults
+INFO:stomp.py:keepalive: set 'enable' option to 1 on socket
+INFO:stomp.py:Established connection to host datafeeds.networkrail.co.uk, port 61618
+INFO:stomp.py:Starting receiver loop
+INFO:main:Connecting to the data feeds
+INFO:stomp.py:Sending frame cmd='STOMP' headers={'passcode': 'General Gr1evous', 'host': 'datafeeds.networkrail.co.uk', 'heart-beat': '10000,5000', 'accept-version': '1.1', 'login': 'filiplamparski@gmail.com'}
+INFO:stomp.py:Received frame: 'CONNECTED', headers={'version': '1.1', 'server': 'ActiveMQ/5.8.0', 'heart-beat': '5000,10000', 'session': 'ID:ec2netrailprodmaster1-55101-1431100387234-2:45910'}, len(body)=0
+INFO:main:Subscribing to the data feeds
+INFO:stomp.py:Sending frame cmd='SUBSCRIBE' headers={'id': 'rail-delay-test', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'ack': 'client-individual'}
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282875582', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17759', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282575582', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 32 message(s)
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c2\\c1\\c17759'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282875582', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17759', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282575582', 'subscription': 'rail-delay-test'}, len(body)=28567
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282881012', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17717', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282581012', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 31 message(s)
+INFO:stomp.py:Sending frame cmd=None headers={}
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c1\\c18\\c17717'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282881012', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17717', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282581012', 'subscription': 'rail-delay-test'}, len(body)=27736
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282885583', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17760', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282585583', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 32 message(s)
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c2\\c1\\c17760'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282885583', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17760', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282585583', 'subscription': 'rail-delay-test'}, len(body)=28605
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282891013', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17761', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282591013', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 28 message(s)
+INFO:stomp.py:Sending frame cmd=None headers={}
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c2\\c1\\c17761'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282891013', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17761', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282591013', 'subscription': 'rail-delay-test'}, len(body)=24561
+INFO:stomp.py:Received frame: 'heartbeat', headers={}, len(body)=0
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282897482', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17762', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282597482', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 32 message(s)
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c2\\c1\\c17762'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282897482', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17762', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282597482', 'subscription': 'rail-delay-test'}, len(body)=28589
+INFO:stomp.py:Sending frame cmd=None headers={}
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282903481', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17718', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282603481', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 32 message(s)
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c1\\c18\\c17718'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282903481', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17718', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282603481', 'subscription': 'rail-delay-test'}, len(body)=28187
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282908182', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17719', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282608182', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 32 message(s)
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c1\\c18\\c17719'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282908182', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17719', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282608182', 'subscription': 'rail-delay-test'}, len(body)=28547
+INFO:stomp.py:Sending frame cmd=None headers={}
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282916009', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17720', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282616009', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 31 message(s)
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c1\\c18\\c17720'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282916009', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17720', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282616009', 'subscription': 'rail-delay-test'}, len(body)=27420
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282919880', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17721', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282619880', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 32 message(s)
+INFO:stomp.py:Sending frame cmd=None headers={}
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c1\\c18\\c17721'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282919880', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17721', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282619880', 'subscription': 'rail-delay-test'}, len(body)=26460
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282921537', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17722', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282621537', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 32 message(s)
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c1\\c18\\c17722'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282921537', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17722', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282621537', 'subscription': 'rail-delay-test'}, len(body)=26583
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282925236', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17763', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282625236', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 32 message(s)
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c2\\c1\\c17763'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282925236', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17763', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282625236', 'subscription': 'rail-delay-test'}, len(body)=25028
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282931053', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17723', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282631053', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 30 message(s)
+INFO:stomp.py:Sending frame cmd=None headers={}
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c1\\c18\\c17723'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282931053', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:1:18:17723', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282631053', 'subscription': 'rail-delay-test'}, len(body)=26815
+INFO:stomp.py:Received frame: 'heartbeat', headers={}, len(body)=0
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282936308', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17764', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282636308', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 32 message(s)
+INFO:stomp.py:Sending frame cmd='ACK' headers={'subscription': 'rail-delay-test', 'message-id': 'ID\\cec2netrailwmq1-42115-1431100354404-1\\c432\\c2\\c1\\c17764'}
+INFO:stomp.py:Received frame: 'MESSAGE', headers={'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282936308', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17764', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282636308', 'subscription': 'rail-delay-test'}, len(body)=28595
+INFO:RailListener:{'transformation': 'jms-xml', 'persistent': 'true', 'expires': '1431282939533', 'message-id': 'ID:ec2netrailwmq1-42115-1431100354404-1:432:2:1:17765', 'priority': '4', 'destination': '/topic/TRAIN_MVT_ALL_TOC', 'timestamp': '1431282639533', 'subscription': 'rail-delay-test'}
+INFO:RailListener:Received a total of 32 message(s)

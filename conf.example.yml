@@ -1,0 +1,18 @@
+# 1. app$ cp conf.example.yml conf.yml
+# 2. add your login credentials here
+
+database:
+  host: localhost
+  db: rail_delay
+
+network_rail:
+  connection:
+    # Your email address for the data feeds-enabled account
+    username: your-email@example.com
+    # The password. I know, it's silly, but it's not my idea.
+    passcode: your-password
+  # Your client's name (a bit like an user-agent string)
+  id: 'rail-delay-test'
+
+logging:
+  level: info
