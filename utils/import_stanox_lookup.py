@@ -3,7 +3,12 @@ import re
 import yaml
 import functools
 import rethinkdb as r
+
+from os import path
 from bs4 import BeautifulSoup as soup
+
+conf_path = path.realpath(path.join(path.dirname(__file__), '..', 'conf.yml'))
+print('Using configuration file {}'.format(conf_path))
 
 # This tool 'imports' the STANOX lookup table by
 # actually just scraping a website which has this
@@ -73,7 +78,7 @@ the_docs = [
 
 # Read in the configuration file
 conf = None
-with open('../conf.yml') as conf_yml:
+with open(conf_path) as conf_yml:
     conf = yaml.load(conf_yml.read())
 
 # Connect to the database
@@ -86,4 +91,4 @@ for doc in the_docs:
     r.table('stanox_lookup').insert(doc).run(conn)
 
 # Create an index on the STANOX field as we will be using it often
-r.table('stanox_lookup').index_create('stanox')
+r.table('stanox_lookup').index_create('stanox').run(conn)
