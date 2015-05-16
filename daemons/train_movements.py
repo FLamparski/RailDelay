@@ -1,79 +1,58 @@
+#-*- set fileencoding=utf-8 -*-
+
 import rethinkdb as r
+import logging
+
 from toolz.dicttoolz import merge
 
-TRAIN_MOVEMENTS = 'com.filipwieland.rail_delay.subs.train_movements'
-TRAIN_MOVEMENT_TYPES = {
+TRAIN_MOVEMENTS = 'com.filipwieland.rail_delay.train_movements'
+MOVEMENT_TYPES = {
     '0001': 'activation',
     '0002': 'cancellation',
     '0003': 'movement',
     '0005': 'reinstatement',
-    '0006': 'changeoforigin',
-    '0007': 'changeofidentity'
+    '0006': 'change-of-origin',
+    '0007': 'change-of-identity'
 }
 
-conn = None
+logger = logging.getLogger('TrainMovements')
 
-
-def process_train_activation(doc):
-    pass
-
-
-def process_train_cancellation(doc):
-    pass
-
-
-def process_train_movement(doc, conn):
-    body = doc['body']
-    extras = {}
-
+def get_geo(stanox, name, conn):
+    geo = {}
     try:
-        stanox_entry = next(r.table('stanox_lookup')
-                             .filter({'stanox': body['loc_stanox']}).run(conn))
+        stanox_entry = next(r.table('stanox_lookup').filter({'stanox': stanox}).run(conn))
+        geo[name + '_name'] = stanox_entry['name']
         try:
-            naptan_entry = next(r.table('naptan_stops')
-                                 .filter({'TiplocCode': stanox_entry['tiploc']})
-                                 .run(conn))
-            extras['location_name'] = naptan_entry['StationName']
-            extras['location_geo'] = naptan_entry['Location']
-        except r.net.DefaultCursorEmpty:
-            extras['location_name'] = stanox_entry['name']
-            extras['location_geo'] = None
-    except r.net.DefaultCursorEmpty:
-        print(' ! Train with ID {train_id}: {event_type} at unknown STANOX {loc_stanox}'.format(**body))
-        extras['location_name'] = None
-        extras['location_geo'] = None
+            naptan_entry = next(r.table('naptan_stops').filter({'TiplocCode': stanox_entry['tiploc']}).run(conn))
+            geo[name + '_name'] = naptan_entry['StationName']
+            geo[name + '_geo'] = naptan_entry['Location']
+        except Exception:
+            logger.info('Stanox code {} has name {} but no location'.format(stanox, name))
+    except Exception:
+        logger.info('Stanox code {} not present in the database'.format(stanox))
+    return geo
+
+def clean_movement_message(msg, msg_type, conn):
+    extras = {'type': msg_type}
+    body = msg['body']
+
+    for key in body.keys():
+        if key.endswith('_stanox'):
+            logger.debug('Train {}: Lookup stanox {} for field {}'.format(body['train_id'], body[key], key))
+            extras = merge(extras, get_geo(body[key], key[:-len('_stanox')]))
+
+        if key.endswith('_timestamp'):
+            try:
+                intval = int(body[key])
+                extras[key] = r.epoch_time(intval / 1000.0)
+            except:
+                pass
+
+        if body[key] == 'true' or body[key] == 'false':
+            extras[key] = bool(body[key] == 'true')
 
     return merge(body, extras)
 
-
-def process_train_reinstatement(doc):
-    pass
-
-
-def process_train_change_of_origin(doc):
-    pass
-
-
-def process_train_change_of_identity(doc):
-    pass
-
-
-movement_handlers = {
-    'movement': process_train_movement
-}
-
-
-def process_train_movement_msg(doc, conn):
-    mtype = TRAIN_MOVEMENT_TYPES[doc['header']['msg_type']]
-    try:
-        new_doc = movement_handlers[mtype](doc, conn)
-        r.table('train_movements').insert(new_doc).run(conn)
-    except KeyError as e:
-        print('Movement handler not found? {}'.format(repr(e)))
-
-
-def process_message(doc, conn):
-    if doc['type'] == TRAIN_MOVEMENTS:
-        process_train_movement_msg(doc, conn)
-    else:
-        raise ValueError('Currently only train movements are supported')
+def process_message(msg, conn):
+    cleaned = clean_movement_message(msg, TRAIN_MOVEMENTS[msg['header']['msg_type']], conn)
+    r.table('train_movements').insert(cleaned).run(conn)
