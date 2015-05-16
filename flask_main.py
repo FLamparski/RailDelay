@@ -49,6 +49,9 @@ def list_movements(page):
     base_query = r.table('train_movements').order_by(r.desc('actual_timestamp'))
     max_count = 50
     skip_count = page * max_count
+    filter_by_type = request.args.get('type', '')
+    if filter_by_type:
+        base_query = base_query.filter({'type': filter_by_type})
     query = base_query.skip(skip_count).limit(max_count)
     mvs = list(query.run(conn))
     return json.dumps(mvs, default=json_formats.date_handler)
