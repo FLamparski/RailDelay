@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="components/jquery/src/attributes/|components/jquery/src/var/|components/leaflet/|components/jquery/src/core/var/|components/jquery/dist/|components/jquery/src/manipulation/|components/jquery/src/ajax/|components/jquery/src/core/|components/lodash/|components/jquery/src/effects/|components/jquery/src/traversing/var/|components/jquery/src/traversing/|components/jquery/src/data/|components/jquery/src/data/var/|components/jquery/src/sizzle/dist/|components/jquery/src/ajax/var/|components/jquery/src/css/var/|components/leaflet/dist/|components/jquery/src/queue/|components/jquery/src/|components/jquery/src/exports/|components/jquery/src/css/|components/jquery/src/manipulation/var/|components/jquery/src/event/" kind="src" path="javascripts"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/dist"/>
+	<classpathentry excluding="attributes/|var/|core/var/|manipulation/|ajax/|core/|effects/|traversing/var/|traversing/|data/|data/var/|sizzle/dist/|ajax/var/|css/var/|queue/|exports/|css/|manipulation/var/|event/" kind="src" path="javascripts/components/jquery/src"/>
+	<classpathentry excluding="var/" kind="src" path="javascripts/components/jquery/src/ajax"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/ajax/var"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/attributes"/>
+	<classpathentry excluding="var/" kind="src" path="javascripts/components/jquery/src/core"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/core/var"/>
+	<classpathentry excluding="var/" kind="src" path="javascripts/components/jquery/src/css"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/css/var"/>
+	<classpathentry excluding="var/" kind="src" path="javascripts/components/jquery/src/data"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/data/var"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/effects"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/event"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/exports"/>
+	<classpathentry excluding="var/" kind="src" path="javascripts/components/jquery/src/manipulation"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/manipulation/var"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/queue"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/sizzle/dist"/>
+	<classpathentry excluding="var/" kind="src" path="javascripts/components/jquery/src/traversing"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/traversing/var"/>
+	<classpathentry kind="src" path="javascripts/components/jquery/src/var"/>
+	<classpathentry excluding="dist/" kind="src" path="javascripts/components/leaflet"/>
+	<classpathentry kind="src" path="javascripts/components/leaflet/dist"/>
+	<classpathentry kind="src" path="javascripts/components/lodash"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

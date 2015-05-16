@@ -66,5 +66,9 @@ def get_train(train_id):
     train = merge(info, {'movements': mvs})
     return json.dumps(train, default=json_formats.date_handler)
 
+@app.route('/')
+def get_home():
+    return render_template('index.j2')
+
 if __name__ == '__main__':
     app.run()

@@ -1,0 +1,28 @@
+{
+  "name": "RailDelay Client",
+  "version": "0.0.1",
+  "authors": [
+    "Filip Wieland <filiplamparski@gmail.com>"
+  ],
+  "description": "A railway delay mapper for the UK",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "railway"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "lodash": "~3.8.0",
+    "leaflet": "~0.7.3"
+  }
+}
