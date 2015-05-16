@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailDelay</title>
+    <link href="{{ url_for('static', filename='stylesheets/screen.css') }}" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='stylesheets/print.css') }}" media="print" rel="stylesheet" type="text/css" />
+    <!--[if IE]>
+        <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='javascripts/components/leaflet/dist/leaflet.css') }}" type="text/css">
+  </head>
+  <body>
+    <div id="map"></div>
+    <div class="overlay top left">
+      <h4 class="modal-title">Most recent train movements:</h2>
+      <ul>
+        {% for movement in movements %}
+          <li>
+            A <strong>{{movement.train.type}}</strong> train has
+            <strong>{% if movement.type == 'ARRIVAL' %}arrived{% else %}departed{% endif %}</strong>
+            <strong>{{movement.timeliness.lower()}}</strong> @ <strong>{{movement.station.StationName}}</strong>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='javascripts/components/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascripts/components/lodash/lodash.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascripts/components/leaflet/dist/leaflet-src.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascripts/main.js')}}"></script>
+  </body>
+</html>
