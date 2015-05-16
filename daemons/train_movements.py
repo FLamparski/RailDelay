@@ -19,6 +19,8 @@ logger = logging.getLogger('TrainMovements')
 
 def get_geo(stanox, name, conn):
     geo = {}
+    if not stanox:
+        return {}
     try:
         stanox_entry = next(r.table('stanox_lookup').filter({'stanox': stanox}).run(conn))
         geo[name + '_name'] = stanox_entry['name']
