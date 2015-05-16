@@ -33,12 +33,15 @@ Rethink's change feeds.
   gevent==1.0.1
   greenlet==0.4.6
   itsdangerous==0.24
+  jedi==0.9.0
   Jinja2==2.7.3
   MarkupSafe==0.23
   PyYAML==3.11
   requests==2.7.0
   rethinkdb==2.0.0.post1
   stomp.py==4.0.16
+  toolz==0.7.2
+  websockets==2.4
   Werkzeug==0.10.4
   ```
 
