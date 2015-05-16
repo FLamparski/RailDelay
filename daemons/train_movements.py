@@ -27,7 +27,7 @@ def get_geo(stanox, name, conn):
             geo[name + '_name'] = naptan_entry['StationName']
             geo[name + '_geo'] = naptan_entry['Location']
         except Exception:
-            logger.info('Stanox code {} has name {} but no location'.format(stanox, name))
+            logger.info('Stanox code {} has name {} but no location'.format(stanox, stanox_entry['name']))
     except Exception:
         logger.info('Stanox code {} not present in the database'.format(stanox))
     return geo
@@ -39,10 +39,11 @@ def clean_movement_message(msg, msg_type, conn):
     for key in body.keys():
         if key.endswith('_stanox'):
             logger.debug('Train {}: Lookup stanox {} for field {}'.format(body['train_id'], body[key], key))
-            extras = merge(extras, get_geo(body[key], key[:-len('_stanox')]))
+            extras = merge(extras, get_geo(body[key], key[:-len('_stanox')], conn))
 
         if key.endswith('_timestamp'):
             try:
+                logger.debug('Converting timestamp for field {}'.format(key))
                 intval = int(body[key])
                 extras[key] = r.epoch_time(intval / 1000.0)
             except:
@@ -54,5 +55,5 @@ def clean_movement_message(msg, msg_type, conn):
     return merge(body, extras)
 
 def process_message(msg, conn):
-    cleaned = clean_movement_message(msg, TRAIN_MOVEMENTS[msg['header']['msg_type']], conn)
+    cleaned = clean_movement_message(msg, MOVEMENT_TYPES[msg['header']['msg_type']], conn)
     r.table('train_movements').insert(cleaned).run(conn)
