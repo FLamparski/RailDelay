@@ -28,6 +28,10 @@ class RailListener:
         self._logger.error('Stomp error:\n{}\n{}'.format(headers, message))
         mq.disconnect()
 
+    def on_heartbeat_timeout(self):
+        self._logger.warn('Heartbeat timed out.');
+        sleep(1)
+
     def on_message(self, headers, message):
         self._logger.info(headers)
         decoded_messages = json.loads(message)
