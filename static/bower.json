@@ -23,6 +23,7 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "lodash": "~3.8.0",
-    "leaflet": "~0.7.3"
+    "leaflet": "~0.7.3",
+    "leaflet.markercluster": "~0.4.0"
   }
 }

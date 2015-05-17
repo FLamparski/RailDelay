@@ -35,18 +35,19 @@ function getMovementsInView() {
 }
 
 function displayMovements(movements) {
-  var markers = _.map(_.filter(movements, function(mvt) {
+  var newGroup = new L.MarkerClusterGroup();
+  var markers = _.each(_.filter(movements, function(mvt) {
     return mvt.loc_geo;
   }), function(mvt) {
     var thePopup = L.popup().setContent('Train with ID ' + mvt.train_id + ': ' + mvt.variation_status + ' ' + mvt.event_type + ' at ' + mvt.loc_name);
     var theMarker = L.marker(L.latLng(mvt.loc_geo.coordinates[1], mvt.loc_geo.coordinates[0]));
     theMarker.bindPopup(thePopup);
-    return theMarker;
+    newGroup.addLayer(theMarker);
   });
   if (RD.layerGroup) {
     RD.map.removeLayer(RD.layerGroup);
   }
-  RD.layerGroup = L.layerGroup(markers);
+  RD.layerGroup = newGroup;
   RD.map.addLayer(RD.layerGroup);
 }
 

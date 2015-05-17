@@ -8,6 +8,7 @@
         <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
     <![endif]-->
     <link rel="stylesheet" href="{{ url_for('static', filename='javascripts/components/leaflet/dist/leaflet.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='javascripts/components/leaflet.markercluster/dist/MarkerCluster.Default.css') }}" type="text/css">
   </head>
   <body>
     <div id="map"></div>
@@ -16,6 +17,7 @@
     <script src="{{ url_for('static', filename='javascripts/components/jquery/dist/jquery.js') }}"></script>
     <script src="{{ url_for('static', filename='javascripts/components/lodash/lodash.js') }}"></script>
     <script src="{{ url_for('static', filename='javascripts/components/leaflet/dist/leaflet-src.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascripts/components/leaflet.markercluster/dist/leaflet.markercluster.js') }}"></script>
     <script src="{{ url_for('static', filename='javascripts/main.js')}}"></script>
   </body>
 </html>
