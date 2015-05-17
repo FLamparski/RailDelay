@@ -57,6 +57,30 @@ def list_movements(page):
     return json.dumps(mvs, default=json_formats.date_handler)
 
 
+@app.route('/api/movements_geo/<string:bounds_str>/', defaults={'page': 0})
+@app.route('/api/movements_geo/<string:bounds_str>/<int:page>')
+def list_movements_geo(bounds_str, page):
+    conn = getattr(g, 'db_conn')
+    # Bounds will be a pair of coordinates looking like:
+    # NW      SW      SE      NE
+    # lng,lat:lng,lat:lng,lat:lng,lat
+    bounds = [
+        [float(coord_str) for coord_str in point_str.split(',')]
+        for point_str in bounds_str.split(':')
+    ]
+    print(bounds)
+    base_query = r.table('train_movements')
+    filtered_to_geo = base_query.filter(r.row['loc_geo'].intersects(
+        r.polygon(*bounds)
+    ))
+    ordered_by_time = filtered_to_geo.order_by(r.desc('actual_timestamp'))
+    max_count = 50
+    skip_count = page * max_count
+    query = ordered_by_time.skip(skip_count).limit(max_count)
+    mvs = list(query.run(conn))
+    return json.dumps(mvs, default=json_formats.date_handler)
+
+
 @app.route('/api/train/<string:train_id>')
 def get_train(train_id):
     conn = getattr(g, 'db_conn')
