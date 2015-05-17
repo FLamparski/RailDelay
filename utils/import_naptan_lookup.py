@@ -39,7 +39,7 @@ def run_import(stops_path=None, refs_path=None, db_config=None):
         reader = csv.DictReader(refs_csv)
         the_refs = [ref for ref in reader]
     atco_codes = [ref['AtcoCode'] for ref in the_refs]
-    with open('./Stops.csv', newline='', errors='surrogateescape') as stops_csv:
+    with open(stops_path, newline='', errors='surrogateescape') as stops_csv:
         reader = csv.DictReader(stops_csv)
         the_stops = [stop for stop in reader if stop['AtcoCode'] in atco_codes]
 
